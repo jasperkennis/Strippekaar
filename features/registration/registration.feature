@@ -4,5 +4,6 @@ Feature: Registration
   I want to be able to log in
 
   Scenario: Creating a User
-    Given a user is logged in as admin
-    I should be able to create a new user
+    Given I am logged in as Admin
+    When I am on the users page
+    Than I should see a link with the text "Create a user"
