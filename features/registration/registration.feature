@@ -6,4 +6,4 @@ Feature: Registration
   Scenario: Creating a User
     Given I am logged in as Admin
     When I am on the users page
-    Than I should see a link with the text "Create a user"
+    Then I should see a link with the text: "Create a user"
