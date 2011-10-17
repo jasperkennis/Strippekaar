@@ -35,4 +35,5 @@ group :test do
   gem 'turn', :require => false
   gem 'cucumber-rails'
   gem 'database_cleaner'
+  gem 'minitest'
 end
