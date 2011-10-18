@@ -1,8 +1,4 @@
 Strippekaar::Application.routes.draw do
-  
-  get "models/index"
-
-  get "models/show"
 
   get "user/index"
   
