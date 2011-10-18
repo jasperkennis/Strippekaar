@@ -20,6 +20,6 @@ When /^I am on the users page$/ do
   visit '/users'
 end
 
-Then /^I should see a link with the text: "([^"]*)"$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then /^I should see a link with the text: "([^"]*)"$/ do |text|
+  page.should have_content(text)
 end
