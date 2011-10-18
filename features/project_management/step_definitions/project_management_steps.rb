@@ -16,6 +16,54 @@ Given /^I am logged in as "([^"]*)" with "([^"]*)" rights$/ do |login, role|
   click_button 'Sign in'
 end
 
-Then /^I should see a link with the text: "([^"]*)"$/ do |text|
-  page.should have_content(text)
+Given /^I am on the projects overview$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^I should see all projects$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^I should have the option to add a new project$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+Given /^I am on the new project page$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+When /^I complete the new project form$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^I should see a confirmation message$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^I should redirect to the project page$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+Given /^I am on a project page$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+When /^I remove the project$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+When /^I am on a project page$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^I should have the option to add users$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^I should see users$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^I should have the option to remove the project$/ do
+  pending # express the regexp above with the code you wish you had
 end
