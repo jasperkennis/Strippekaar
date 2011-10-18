@@ -42,7 +42,7 @@ end
 
 When /^I complete the new client form$/ do
   fill_in 'client_name', :with => "First client"
-  click_button 'Create client' 
+  click_button 'Create Client' 
 end
 
 Then /^I should see a confirmation message$/ do
@@ -50,7 +50,7 @@ Then /^I should see a confirmation message$/ do
 end
 
 Then /^I should redirect to the client page$/ do
-  pending # express the regexp above with the code you wish you had
+  page.should have_content 'First client'
 end
 
 Given /^I am on a client page$/ do
