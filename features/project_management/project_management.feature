@@ -31,3 +31,8 @@ Feature: Client management
     And I should have the option to remove the client
   
   Scenario: An admin adds a user to a client
+    Given I am logged in as "Admin" with "admin" rights
+    And I am on the new user page
+    When I complete the new user form
+    Then I should see a confirmation message
+    And I should redirect to the client page
