@@ -1,6 +1,12 @@
 Strippekaar::Application.routes.draw do
   
+  get "models/index"
+
+  get "models/show"
+
   get "user/index"
+  
+  resources :clients
 
   devise_for :users, :path_names => {:sign_in => 'login'}
   
