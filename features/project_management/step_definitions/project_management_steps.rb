@@ -16,59 +16,59 @@ Given /^I am logged in as "([^"]*)" with "([^"]*)" rights$/ do |login, role|
   click_button 'Sign in'
 end
 
-Given /^I am on the projects overview$/ do
-  @first_project = Project.create!(
-    :name => 'First project'
+Given /^I am on the clients overview$/ do
+  @first_client = Client.create!(
+    :name => 'First client'
   )
   
-  @second_project = Project.create!(
-    :name => 'Second project'
+  @second_client = Client.create!(
+    :name => 'Second client'
   )
-  visit '/projects'
+  visit '/clients'
 end
 
-Then /^I should see all projects$/ do
-  page.should have_content 'First project'
-  page.should have_content 'Second project'
+Then /^I should see all clients$/ do
+  page.should have_content 'First client'
+  page.should have_content 'Second client'
 end
 
-Then /^I should have the option to add a new project$/ do
-  page.should have_content 'Add new project'
+Then /^I should have the option to add a new client$/ do
+  page.should have_content 'Add new client'
 end
 
-Given /^I am on the new project page$/ do
-  visit '/projects/new'
+Given /^I am on the new client page$/ do
+  visit '/clients/new'
 end
 
-When /^I complete the new project form$/ do
-  fill_in 'project_name', :with => "First project"
-  click_button 'Create project' 
+When /^I complete the new client form$/ do
+  fill_in 'client_name', :with => "First client"
+  click_button 'Create client' 
 end
 
 Then /^I should see a confirmation message$/ do
-  page.should have_content '"First project" has been created'
+  page.should have_content '"First client" has been created'
 end
 
-Then /^I should redirect to the project page$/ do
+Then /^I should redirect to the client page$/ do
   pending # express the regexp above with the code you wish you had
 end
 
-Given /^I am on a project page$/ do
-  @first_project = Project.create!(
-    :name => 'First project'
+Given /^I am on a client page$/ do
+  @first_client = Client.create!(
+    :name => 'First client'
   )
-  visit path_to @first_project
+  visit path_to @first_client
 end
 
-When /^I remove the project$/ do
-  click_link "Delete project"
+When /^I remove the client$/ do
+  click_link "Delete client"
 end
 
-When /^I am on a project page$/ do
-  @first_project = Project.create!(
-    :name => 'First project'
+When /^I am on a client page$/ do
+  @first_client = Client.create!(
+    :name => 'First client'
   )
-  visit path_to @first_project 
+  visit path_to @first_client 
 end
 
 Then /^I should have the option to add users$/ do
@@ -76,8 +76,8 @@ Then /^I should have the option to add users$/ do
 end
 
 Then /^I should see users$/ do
-  @first_project = Project.create!(
-    :name => 'First project'
+  @first_client = Client.create!(
+    :name => 'First client'
   )
   @first_porject_user = User.create!(
     :login => 'FirstUser',
@@ -86,11 +86,11 @@ Then /^I should see users$/ do
     :email => "FirstUser@example.com",
     :role => 'user'
   )
-  @first_project_user.project = @first_project
+  @first_client_user.client = @first_client
   
-  page.should have_content @first_project_user.name
+  page.should have_content @first_client_user.name
 end
 
-Then /^I should have the option to remove the project$/ do
-  page.should have_content 'Delete project'
+Then /^I should have the option to remove the client$/ do
+  page.should have_content 'Delete client'
 end
