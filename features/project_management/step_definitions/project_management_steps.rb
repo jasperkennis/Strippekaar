@@ -94,3 +94,12 @@ end
 Then /^I should have the option to remove the client$/ do
   page.should have_content 'Delete client'
 end
+
+Given /^I am on the new user page$/ do
+  visit '/users/new'
+end
+
+When /^I complete the new user form$/ do
+  fill_in 'user_name', :with => "First user"
+  click_button 'Create user' 
+end
