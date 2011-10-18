@@ -16,10 +16,6 @@ Given /^I am logged in as "([^"]*)" with "([^"]*)" rights$/ do |login, role|
   click_button 'Sign in'
 end
 
-When /^I am on the users page$/ do
-  visit '/users'
-end
-
 Then /^I should see a link with the text: "([^"]*)"$/ do |text|
   page.should have_content(text)
 end
