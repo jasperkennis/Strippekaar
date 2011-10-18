@@ -40,4 +40,6 @@ group :test do
   gem 'database_cleaner'
   gem 'minitest'
   gem 'webrat'
+  gem 'rspec-rails'
+  gem 'capybara'
 end

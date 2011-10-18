@@ -3,7 +3,7 @@ Feature: Registration
   As a user
   I want to be able to log in
 
-  Scenario: Creating a User
-    Given I am logged in as Admin
+  Scenario: An admin creates a new user
+    Given I am logged in as "Admin" with "admin" rights
     When I am on the users page
     Then I should see a link with the text: "Create a user"
