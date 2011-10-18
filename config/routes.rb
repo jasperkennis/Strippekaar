@@ -3,6 +3,8 @@ Strippekaar::Application.routes.draw do
   get "user/index"
 
   devise_for :users, :path_names => {:sign_in => 'login'}
+  
+  match 'users' => 'user#index'
 
   root :to => "user#index"
   
@@ -52,10 +54,6 @@ Strippekaar::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 
