@@ -45,30 +45,17 @@ When /^I complete the new client form$/ do
   click_button 'Create Client' 
 end
 
-Then /^I should see a confirmation message$/ do
-  page.should have_content '"First client" has been created'
-end
-
 Then /^I should redirect to the client page$/ do
   page.should have_content 'First client'
 end
 
 Given /^I am on a client page$/ do
-  @first_client = Client.create!(
-    :name => 'First client'
-  )
-  visit path_to @first_client
+  @first_client = Factory.create(:client)
+  visit client_path @first_client
 end
 
 When /^I remove the client$/ do
   click_link "Delete client"
-end
-
-When /^I am on a client page$/ do
-  @first_client = Client.create!(
-    :name => 'First client'
-  )
-  visit path_to @first_client 
 end
 
 Then /^I should have the option to add users$/ do
@@ -79,16 +66,17 @@ Then /^I should see users$/ do
   @first_client = Client.create!(
     :name => 'First client'
   )
-  @first_porject_user = User.create!(
+  @first_client_user = User.create(
     :login => 'FirstUser',
     :password => 'generic',
     :password_confirmation => 'generic',
     :email => "FirstUser@example.com",
     :role => 'user'
   )
-  @first_client_user.client = @first_client
+  @first_client.users<<@first_client_user
+  #@first_client_user.client = @first_client
   
-  page.should have_content @first_client_user.name
+  page.should have_content "FirstUser"
 end
 
 Then /^I should have the option to remove the client$/ do
@@ -102,4 +90,8 @@ end
 When /^I complete the new user form$/ do
   fill_in 'user_name', :with => "First user"
   click_button 'Create user' 
+end
+
+Then /^I should see "([^"]*)"$/ do |message|
+  page.should have_content message
 end

@@ -4,6 +4,7 @@ class ClientsController < ApplicationController
   end
 
   def show
+    @client = Client.find(params[:id])
   end
   
   def new
@@ -11,15 +12,21 @@ class ClientsController < ApplicationController
   end
   
   def create
-    
     @client = Client.new(params[:client])
     
     if @client.save
       redirect_to @client,
-                  :notice => "\"#{@client.name}\" has been created"
+        :notice => "Client has been created"
     else
        render :action => "new"
     end
+  end
+  
+  def destroy
+    @client = Client.find(params[:id])
+    @client.destroy
+    redirect_to root_path,
+      :notice => "Client has been destroyed"
   end
 
 end

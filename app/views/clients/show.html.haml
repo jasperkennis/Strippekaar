@@ -1,0 +1,12 @@
+%h1= @client.name
+
+-if @client.users.size > 0
+  %ul
+    -@client.users.each do |user|
+      %li= user.login
+
+%p
+  = link_to 'Add new user', new_user_registration_path
+
+%p
+  = link_to 'Delete client', client_path, :confirm => 'Are you sure?', :method => :delete
